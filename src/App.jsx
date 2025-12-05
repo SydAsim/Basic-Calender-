@@ -245,7 +245,17 @@ function App() {
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-600 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 sm:h-16">
+            {/* Left side - Theme toggle on mobile, title on desktop */}
             <div className="flex items-center space-x-2 sm:space-x-4 min-w-0 flex-1">
+              {/* Theme Toggle - Left side on mobile */}
+              <button
+                onClick={toggleTheme}
+                className="sm:hidden p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                title="Toggle Theme"
+              >
+                {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+              </button>
+              
               <h1 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-50 truncate">
                 Strategic Planner
               </h1>
@@ -264,6 +274,7 @@ function App() {
               </div>
             </div>
             
+            {/* Right side - Other controls */}
             <div className="flex items-center space-x-1 sm:space-x-2">
               {/* Mobile Search */}
               <div className="relative sm:hidden">
@@ -320,13 +331,13 @@ function App() {
                 {settings.lockMode ? <Lock className="w-4 h-4 sm:w-5 sm:h-5" /> : <Unlock className="w-4 h-4 sm:w-5 sm:h-5" />}
               </button>
               
-              {/* Theme Toggle */}
+              {/* Theme Toggle - Right side on desktop only */}
               <button
                 onClick={toggleTheme}
-                className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                className="hidden sm:block p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                 title="Toggle Theme"
               >
-                {theme === 'light' ? <Moon className="w-4 h-4 sm:w-5 sm:h-5" /> : <Sun className="w-4 h-4 sm:w-5 sm:h-5" />}
+                {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
               </button>
             </div>
           </div>
@@ -372,7 +383,7 @@ function App() {
             {showDataCheck && (
               <DataIntegrityCheck />
             )}
-            
+             //comment
             {selectedMonthData ? (
               <MonthDetail
                 monthKey={selectedMonth}
