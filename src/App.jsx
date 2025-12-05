@@ -383,7 +383,7 @@ function App() {
             {showDataCheck && (
               <DataIntegrityCheck />
             )}
-             //comment
+             
             {selectedMonthData ? (
               <MonthDetail
                 monthKey={selectedMonth}
